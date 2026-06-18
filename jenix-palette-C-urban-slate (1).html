@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jenix Heights — Palette C: Urban Slate + Electric Gold</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Montserrat',sans-serif; overflow-x:hidden; }
+
+:root {
+  --bg:      #141414;
+  --bg2:     #1a1a1a;
+  --bg3:     #202020;
+  --slate:   #2a2a2a;
+  --accent:  #E8C06A;
+  --accent2: #C8A040;
+  --text:    #F5F0E8;
+  --mid:     rgba(245,240,232,0.5);
+  --border:  rgba(232,192,106,0.2);
+}
+
+/* ── NAV ── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  background:rgba(10,10,10,0.97); backdrop-filter:blur(12px);
+  height:68px; padding:0 5%;
+  display:flex; align-items:center; justify-content:space-between;
+  border-bottom:1px solid rgba(232,192,106,0.1);
+}
+.nav-logo { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; letter-spacing:4px; color:var(--accent); text-decoration:none; }
+.nav-sub  { font-size:8px; letter-spacing:3px; color:rgba(232,192,106,0.4); text-transform:uppercase; margin-top:2px; }
+.nav-links { display:flex; gap:32px; list-style:none; }
+.nav-links a { color:rgba(245,240,232,0.45); text-decoration:none; font-size:10px; font-weight:500; letter-spacing:2px; text-transform:uppercase; transition:color .3s; }
+.nav-links a:hover { color:var(--accent); }
+.nav-cta { border:1px solid var(--accent); color:var(--accent); padding:10px 22px; font-size:10px; font-weight:600; letter-spacing:2px; text-transform:uppercase; text-decoration:none; transition:all .3s; }
+.nav-cta:hover { background:var(--accent); color:var(--bg); }
+
+/* ── HERO ── */
+.hero {
+  min-height:100vh; background:var(--bg);
+  display:flex; align-items:center; padding:0 6%; position:relative; overflow:hidden;
+}
+.hero::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg, #141414 40%, rgba(232,192,106,0.03) 100%);
+}
+/* Diagonal stripe signature */
+.hero-stripes {
+  position:absolute; right:0; top:0; bottom:0; width:50%;
+  overflow:hidden; pointer-events:none;
+}
+.hero-stripes::before {
+  content:''; position:absolute; inset:-50%;
+  background:repeating-linear-gradient(
+    -55deg,
+    transparent, transparent 40px,
+    rgba(232,192,106,0.025) 40px,
+    rgba(232,192,106,0.025) 41px
+  );
+}
+.hero-content { position:relative; z-index:2; max-width:680px; padding-top:68px; }
+.eyebrow { font-size:9px; letter-spacing:4px; text-transform:uppercase; color:var(--accent); font-weight:600; margin-bottom:28px; display:flex; align-items:center; gap:16px; }
+.eyebrow::before { content:''; display:block; width:32px; height:1px; background:var(--accent); opacity:.6; }
+h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(52px,7vw,90px); font-weight:300; line-height:1.04; color:var(--text); margin-bottom:20px; }
+h1 em { font-style:italic; color:var(--accent); }
+.subtitle { font-size:14px; line-height:1.85; color:var(--mid); max-width:480px; margin-bottom:44px; }
+.price-bar { display:inline-flex; align-items:baseline; gap:10px; border-left:2px solid var(--accent); padding-left:20px; margin-bottom:44px; }
+.price-bar .from { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--mid); }
+.price-bar .amount { font-family:'Cormorant Garamond',serif; font-size:44px; font-weight:500; color:var(--accent); line-height:1; }
+.price-bar .unit { font-size:11px; color:var(--mid); }
+.btns { display:flex; gap:14px; flex-wrap:wrap; }
+.btn-pri { background:var(--accent); color:var(--bg); padding:15px 34px; font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; border:none; cursor:pointer; transition:all .3s; text-decoration:none; display:inline-block; }
+.btn-pri:hover { background:var(--accent2); }
+.btn-ghost { background:transparent; border:1px solid rgba(232,192,106,0.25); color:rgba(245,240,232,0.55); padding:15px 34px; font-family:'Montserrat',sans-serif; font-size:11px; font-weight:500; letter-spacing:2px; text-transform:uppercase; cursor:pointer; transition:all .3s; text-decoration:none; display:inline-block; }
+.btn-ghost:hover { border-color:var(--accent); color:var(--accent); }
+
+/* ── CRED BAR ── */
+.cred { background:var(--bg3); border-bottom:1px solid rgba(232,192,106,0.08); display:flex; justify-content:center; flex-wrap:wrap; }
+.cred-item { display:flex; align-items:center; gap:12px; padding:22px 36px; border-right:1px solid rgba(232,192,106,0.07); }
+.cred-item:last-child { border:none; }
+.cred-num { font-family:'Cormorant Garamond',serif; font-size:30px; font-weight:600; color:var(--accent); line-height:1; }
+.cred-lbl { font-size:10px; font-weight:600; letter-spacing:1px; text-transform:uppercase; color:var(--mid); line-height:1.35; }
+
+/* ── SECTIONS ── */
+.sec { padding:90px 6%; background:var(--bg2); }
+.sec.alt { background:var(--bg3); }
+.sec-label { font-size:9px; letter-spacing:4px; text-transform:uppercase; color:var(--accent); font-weight:700; margin-bottom:14px; display:flex; align-items:center; gap:14px; }
+.sec-label::before { content:''; display:block; width:28px; height:1px; background:var(--accent); }
+.sec-title { font-family:'Cormorant Garamond',serif; font-size:clamp(34px,4.5vw,56px); font-weight:300; line-height:1.08; color:var(--text); margin-bottom:18px; }
+.sec-title em { color:var(--accent); font-style:italic; }
+.sec-body { font-size:14px; line-height:1.85; color:var(--mid); max-width:580px; }
+
+.stats { display:grid; grid-template-columns:1fr 1fr; gap:1px; margin-top:40px; max-width:440px; background:rgba(232,192,106,.06); border:1px solid var(--border); }
+.stat { padding:26px 22px; background:var(--bg); }
+.stat .n { font-family:'Cormorant Garamond',serif; font-size:34px; font-weight:500; color:var(--accent); line-height:1; margin-bottom:6px; }
+.stat .l { font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--mid); }
+
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; max-width:1200px; margin:0 auto; }
+.render-box { background:rgba(232,192,106,.04); border:1px solid rgba(232,192,106,.1); aspect-ratio:3/4; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; }
+.render-box .icon { font-size:48px; opacity:.12; }
+.render-box p { font-size:10px; letter-spacing:3px; text-transform:uppercase; opacity:.2; color:var(--text); }
+
+.amen-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px; margin-top:48px; max-width:1100px; background:rgba(232,192,106,.07); border:1px solid var(--border); }
+.amen-card { padding:36px 20px; text-align:center; background:var(--bg); transition:background .25s; }
+.amen-card:hover { background:var(--slate); }
+.amen-icon { font-size:28px; margin-bottom:12px; }
+.amen-name { font-size:11px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:rgba(245,240,232,.6); }
+
+.loc-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2px; margin-top:40px; max-width:1100px; background:rgba(232,192,106,.05); }
+.loc-card { padding:28px 24px; background:var(--slate); }
+.loc-icon { font-size:22px; margin-bottom:10px; }
+.loc-title { font-family:'Cormorant Garamond',serif; font-size:18px; color:var(--accent); margin-bottom:6px; }
+.loc-desc { font-size:12px; color:var(--mid); line-height:1.5; }
+.infra-bar { background:var(--slate); border-left:3px solid var(--accent); padding:20px 24px; margin-top:24px; font-size:13px; color:var(--mid); line-height:1.7; }
+.infra-bar strong { color:var(--accent); }
+
+.cta-band { background:var(--accent); padding:60px 6%; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:28px; }
+.cta-band h3 { font-family:'Cormorant Garamond',serif; font-size:clamp(28px,3.5vw,44px); font-weight:300; color:var(--bg); line-height:1.15; }
+.cta-band h3 em { font-style:italic; }
+.btn-dark { background:var(--bg); color:var(--accent); padding:15px 34px; font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; border:none; cursor:pointer; transition:all .3s; text-decoration:none; display:inline-block; }
+.btn-dark:hover { background:#0a0a0a; }
+
+.enquiry { padding:80px 6%; background:var(--bg); }
+.form-row { display:flex; flex-wrap:wrap; gap:14px; margin-top:40px; max-width:800px; }
+.form-row input, .form-row select { flex:1 1 200px; padding:14px 16px; background:var(--bg3); border:1px solid var(--border); color:var(--text); font-family:'Montserrat',sans-serif; font-size:13px; outline:none; transition:border-color .3s; }
+.form-row input:focus, .form-row select:focus { border-color:var(--accent); }
+.form-row select option { background:var(--bg2); }
+.form-submit { background:var(--accent); color:var(--bg); padding:14px 36px; font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; border:none; cursor:pointer; white-space:nowrap; transition:background .3s; }
+.form-submit:hover { background:var(--accent2); }
+
+footer { background:#0a0a0a; border-top:1px solid rgba(232,192,106,0.1); padding:40px 6% 24px; }
+.foot-top { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; padding-bottom:24px; border-bottom:1px solid rgba(232,192,106,.06); margin-bottom:20px; }
+.foot-brand { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; letter-spacing:4px; color:var(--accent); }
+.foot-links { display:flex; gap:28px; flex-wrap:wrap; }
+.foot-links a { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:rgba(245,240,232,.28); text-decoration:none; transition:color .3s; }
+.foot-links a:hover { color:var(--accent); }
+.foot-disc { font-size:10px; color:rgba(245,240,232,.18); line-height:1.7; font-style:italic; }
+
+.pal-badge { position:fixed; bottom:24px; left:24px; z-index:999; background:var(--slate); color:var(--accent); border:1px solid var(--border); padding:10px 18px; font-size:10px; letter-spacing:2px; text-transform:uppercase; font-weight:700; }
+
+@media(max-width:900px) { .nav-links { display:none; } .two-col { grid-template-columns:1fr; gap:40px; } }
+@media(max-width:600px) { .sec { padding:60px 5%; } .cred-item { padding:14px 18px; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div>
+    <a class="nav-logo" href="#">JENIX</a>
+    <div class="nav-sub">Building Dreams</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Jenix Heights</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="#">Schedule a Visit</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-stripes"></div>
+  <div class="hero-content">
+    <div class="eyebrow">New Launch · Mahim, Mumbai</div>
+    <h1>Where <em>Elevated</em><br>Living Begins</h1>
+    <p class="subtitle">Premium residences designed for those who refuse to compromise — at the heart of Mumbai's finest address.</p>
+    <div class="price-bar">
+      <span class="from">Starting</span>
+      <span class="amount">₹1.79 Cr</span>
+      <span class="unit">+ taxes onwards</span>
+    </div>
+    <div class="btns">
+      <a class="btn-pri" href="#">Schedule a Site Visit</a>
+      <a class="btn-ghost" href="#">Explore Project</a>
+    </div>
+  </div>
+</section>
+
+<div class="cred">
+  <div class="cred-item"><div class="cred-num">15+</div><div class="cred-lbl">Years of<br>Experience</div></div>
+  <div class="cred-item"><div class="cred-num">40+</div><div class="cred-lbl">Commercial<br>Projects</div></div>
+  <div class="cred-item"><div class="cred-num">45</div><div class="cred-lbl">Exclusive<br>Units</div></div>
+  <div class="cred-item"><div class="cred-num">Dec '28</div><div class="cred-lbl">Possession<br>Timeline</div></div>
+</div>
+
+<section class="sec">
+  <div class="two-col">
+    <div>
+      <div class="sec-label">Featured Project</div>
+      <h2 class="sec-title">Jenix <em>Heights</em></h2>
+      <p class="sec-body">23 floors of premium residences rising above Mahim — where quiet, leafy streets meet unmatched connectivity to BKC and Lower Parel.</p>
+      <div class="stats">
+        <div class="stat"><div class="n">23</div><div class="l">Floors</div></div>
+        <div class="stat"><div class="n">45</div><div class="l">Total Units</div></div>
+        <div class="stat"><div class="n">1 BHK</div><div class="l">& Jodi Options</div></div>
+        <div class="stat"><div class="n">430+</div><div class="l">Sq ft Carpet</div></div>
+      </div>
+      <div style="margin-top:36px;"><a class="btn-pri" href="#">View Full Project</a></div>
+    </div>
+    <div class="render-box">
+      <div class="icon">🏙️</div>
+      <p>Building Render Coming Soon</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="sec-label">Lifestyle Amenities</div>
+    <h2 class="sec-title">Crafted for <em>Everyday</em> Excellence</h2>
+    <div class="amen-grid">
+      <div class="amen-card"><div class="amen-icon" style="color:#E8C06A;">🏠</div><div class="amen-name">Smart Homes</div></div>
+      <div class="amen-card"><div class="amen-icon" style="color:#E8C06A;">🏋️</div><div class="amen-name">Gymnasium</div></div>
+      <div class="amen-card"><div class="amen-icon" style="color:#E8C06A;">🌿</div><div class="amen-name">Terrace Garden</div></div>
+      <div class="amen-card"><div class="amen-icon" style="color:#E8C06A;">🌇</div><div class="amen-name">Rooftop Deck</div></div>
+      <div class="amen-card"><div class="amen-icon" style="color:#E8C06A;">🎮</div><div class="amen-name">Indoor Games</div></div>
+      <div class="amen-card"><div class="amen-icon" style="color:#E8C06A;">✨</div><div class="amen-name">Premium Finishes</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="sec-label">Location Advantage</div>
+    <h2 class="sec-title">Connected to <em>Everything</em></h2>
+    <div class="loc-grid">
+      <div class="loc-card"><div class="loc-icon">🏙️</div><div class="loc-title">BKC & Lower Parel</div><div class="loc-desc">Prime business hubs within easy reach</div></div>
+      <div class="loc-card"><div class="loc-icon">🚇</div><div class="loc-title">Sitla Devi Metro</div><div class="loc-desc">Upcoming metro station in proximity</div></div>
+      <div class="loc-card"><div class="loc-icon">🌉</div><div class="loc-title">Bandra Worli Sea Link</div><div class="loc-desc">& Worli–Sewree Connector coming</div></div>
+      <div class="loc-card"><div class="loc-icon">🚂</div><div class="loc-title">Mahim Railway</div><div class="loc-desc">Central & Western line access</div></div>
+    </div>
+    <div class="infra-bar">🚧 <strong>Upcoming Infra Boost:</strong> The Worli–Sewree Connector is set to significantly enhance connectivity from Mahim — driving strong capital appreciation.</div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <h3>Ready to make<br><em>Mahim your home?</em></h3>
+  <a class="btn-dark" href="#">Book a Site Visit →</a>
+</div>
+
+<section class="enquiry">
+  <div style="max-width:900px;">
+    <div class="sec-label">Quick Enquiry</div>
+    <h2 class="sec-title">Get in <em>Touch</em></h2>
+    <div class="form-row">
+      <input type="text" placeholder="Your Name">
+      <input type="tel" placeholder="+91 Mobile Number">
+      <select><option>1 BHK Interest</option><option>2/3 BHK Jodi</option><option>All Options</option></select>
+      <button class="form-submit">Send Enquiry →</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-top">
+    <div class="foot-brand">JENIX</div>
+    <div class="foot-links">
+      <a href="#">Home</a><a href="#">About</a><a href="#">Project</a><a href="#">Contact</a>
+    </div>
+  </div>
+  <div class="foot-disc">© 2025 Jenix Biz India. RERA registration in process. Prices are indicative and subject to change. All images representational.</div>
+</footer>
+
+<div class="pal-badge">Palette C — Urban Slate + Electric Gold</div>
+</body>
+</html>
